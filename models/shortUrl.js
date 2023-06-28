@@ -18,6 +18,4 @@ const shortUrlSchema = new mongoose.Schema({
   }
 })
 
-const User =  mongoose.model('ShortUrl', shortUrlSchema)
-
-module.exports = { User }
+module.exports = mongoose.model('ShortUrl', shortUrlSchema)

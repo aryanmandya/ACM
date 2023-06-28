@@ -23,7 +23,7 @@ app.post('/User', async (req, res) => {
 })
 
 app.get('/:User', async (req, res) => {
-  const shortUrl = await User.findOne({ short: req.params.shortUrl })
+  const shortUrl = await User.findOne({ short: req.params.User })
   if (shortUrl == null) return res.sendStatus(404)
 
   shortUrl.clicks++

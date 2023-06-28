@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const shortid = require('shortid')
+
 const { User } = require('./models/shortUrl')
 const app = express()
 

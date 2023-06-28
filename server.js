@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const ShortUrl = require('./models/shortUrl')
+const shortid = require('shortid')
+const { User } = require('./models/shortUrl')
 const app = express()
 
 mongoose.connect('mongodb+srv://aryanmandya4:n2GfAIip4fJCOIje@cluster0.f9eubjx.mongodb.net/', {
@@ -15,13 +16,13 @@ app.get('/', async (req, res) => {
   res.render('index', { shortUrls: shortUrls })
 })
 
-app.post('/shortUrls', async (req, res) => {
+app.post('/User', async (req, res) => {
   await ShortUrl.create({ full: req.body.fullUrl })
 
   res.redirect('/')
 })
 
-app.get('/:shortUrl', async (req, res) => {
+app.get('/:User', async (req, res) => {
   const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl })
   if (shortUrl == null) return res.sendStatus(404)
 
